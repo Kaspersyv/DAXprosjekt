@@ -19,12 +19,11 @@
         function checkMinute() {
             let randomNumber = Math.floor(Math.random() * 8) + 1;
             thisMinute = current.getMinutes();
-           if (thisMinute == lastMinute) {
-            return;
-           }
-           else {
+           if (thisMinute !== lastMinute) {
+               lastMinute = thisMinute
             document.getElementById("clockField").innerHTML = randomNumber
            }
+           
         }
 
        
