@@ -1,15 +1,16 @@
    
       let myStorage = window.sessionStorage;
       
-      let userInput = document.querySelector("#userInput").value
+      let userInput = JSON.stringify(document.querySelector("#userInput"))
 
       function welcome() {
         sessionStorage.setItem("name", userInput)
+        console.log(userInput)
         const userName = sessionStorage.getItem("name")
-        document.getElementById("nameField").innerText = "Velkommen " + userName;
-          
+        $("#nameField").innerText = "Velkommen " + userName; 
       }
 
+  
       const userName = myStorage.getItem("name")
 
       let current = new Date();
@@ -23,11 +24,17 @@
           thisMinute = new Date().getMinutes();
           if (thisMinute !== lastMinute) {
               lastMinute = thisMinute
-              document.querySelector("#clockField").innerText = "Your lucky number is: " + randomNumber
+              document.querySelector("#clockField").innerText = "Ditt lykketall: " + randomNumber
           }
+
+         
+
 
       }
 
+      
+
 
       window.setInterval(checkMinute, 1000);
+      window.setInterval(checkGuess, 1000);
       document.getElementById("clockField").innerText = "Your lucky number is: " + firstRandom
