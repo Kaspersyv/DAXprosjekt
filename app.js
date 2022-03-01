@@ -14,7 +14,7 @@
         const lastMinute = current.getMinutes();
 
         window.setInterval('checkMinute()', 1000); 
-        document.getElementById("clockField").innerHTML = firstRandom
+        document.getElementById("clockField").innerText = firstRandom
 
         function checkMinute() {
             let randomNumber = Math.floor(Math.random() * 8) + 1;
