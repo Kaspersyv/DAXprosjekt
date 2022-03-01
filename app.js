@@ -1,34 +1,33 @@
-       sessionStorage.setItem("name", document.getElementById("userInput".value));
-        let userName = sessionStorage.getItem("name")
-        function welcome() {
-            document.getElementById("nameField").innerHTML = "Velkommen " + userName ;
-        }
+   
+      let myStorage = window.sessionStorage;
+      
+      let userInput = document.querySelector("#userInput").value
 
-        const d = new Date();
-        let minutes = d.getMinutes();
+      function welcome() {
+        sessionStorage.setItem("name", userInput)
+        const userName = sessionStorage.getItem("name")
+        document.getElementById("nameField").innerText = "Velkommen " + userName;
+          
+      }
 
-        let current = new Date();
+      const userName = myStorage.getItem("name")
 
-        let firstRandom = Math.floor(Math.random() * 8) + 1;
+      let current = new Date();
 
-        const lastMinute = current.getMinutes();
+      let firstRandom = Math.floor(Math.random() * 8) + 1;
 
-        window.setInterval('checkMinute()', 1000); 
-        document.getElementById("clockField").innerText = firstRandom
+      let lastMinute = new Date().getMinutes();
 
-        function checkMinute() {
-            let randomNumber = Math.floor(Math.random() * 8) + 1;
-            thisMinute = current.getMinutes();
-           if (thisMinute !== lastMinute) {
-               lastMinute = thisMinute
-            document.getElementById("clockField").innerHTML = randomNumber
-           }
-           
-        }
+      const checkMinute = () => {
+          let randomNumber = Math.floor(Math.random() * 8) + 1;
+          thisMinute = new Date().getMinutes();
+          if (thisMinute !== lastMinute) {
+              lastMinute = thisMinute
+              document.querySelector("#clockField").innerText = "Your lucky number is: " + randomNumber
+          }
 
-       
-
-
+      }
 
 
-
+      window.setInterval(checkMinute, 1000);
+      document.getElementById("clockField").innerText = "Your lucky number is: " + firstRandom
