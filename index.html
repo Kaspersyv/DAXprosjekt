@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>DAX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h1>HEI!</h1>
+
+
+    <form action="/" method="post">
+        <label>Input :D</label>
+        <input id="userInput" type="text">
+        <button onclick="welcome()">Submit</button>
+        <h3 id="nameField"></h3>
+
+        
+
+
+
+    </form>
+
+   <script>
+       sessionStorage.setItem("name", document.getElementById("userInput".value));
+        let userName = sessionStorage.getItem("name")
+        function welcome() {
+            document.getElementById("nameField").innerHTML = "Velkommen " + userName ;
+        }
+
+        const d = new Date();
+        let minutes = d.getMinutes();
+
+
+        window.setInterval('refresh()', 60000); 	
+        // Call a function every 10000 milliseconds 
+        // (OR 10 seconds).
+
+        // Refresh or reload page.
+        function refresh() {
+            window .location.reload();
+        }
+
+
+
+
+   </script>
+    <script src="/app.js"></script>
+</body>
+
+</html>
