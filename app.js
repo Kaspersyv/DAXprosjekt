@@ -1,16 +1,17 @@
-   let myStorage = window.sessionStorage;
 
-   let userInput = JSON.stringify(document.querySelector("#userInput"))
+
+
+   let userInput = document.getElementById("userInput")
+    let finalInput = JSON.stringify(userInput)
 
    function welcome() {
-       sessionStorage.setItem("name", userInput)
-       console.log(userInput)
+       sessionStorage.setItem("name", finalInput)
        const userName = sessionStorage.getItem("name")
        $("#nameField").innerText = "Velkommen " + userName;
    }
 
 
-   const userName = myStorage.getItem("name")
+   const userName = sessionStorage.getItem("name")
 
    let current = new Date();
 
